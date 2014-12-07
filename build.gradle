@@ -1,29 +1,21 @@
-apply plugin: 'groovy'
-apply plugin: 'shadow'
-
-buildscript {
-    repositories {
-        maven {
-            name 'Shadow'
-            url 'http://dl.bintray.com/content/johnrengelman/gradle-plugins'
-        }
-    }
-    dependencies {
-        classpath 'org.gradle.plugins:shadow:0.7.4'
-    }
+plugins {
+  id 'groovy' // or 'java' Must be explicitly applied
+  id 'com.github.johnrengelman.shadow' version '1.2.0'
 }
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.1.5'
+    compile 'org.codehaus.groovy:groovy-all:2.3.8'
 }
 
 version = '0.1'
+
 jar {
     manifest {
         attributes 'Main-Class': 'blog.shadow.HelloWorld'
     }
 }
+
